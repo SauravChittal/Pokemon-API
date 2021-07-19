@@ -33,31 +33,6 @@ def get_info(pokemon):
         second = ""
     type += second
     thingToReturn.append(type)
-    # try:
-    #     # All three abilities. Not working right now for Pokemon with only 1 ability
-    #     ability_one = driver.find_element_by_css_selector(".mw-parser-output > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > a:nth-child(1)").text
-    #     ability_two = driver.find_element_by_css_selector(".mw-parser-output > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > a:nth-child(1)").text
-    #     ability_three = driver.find_element_by_css_selector(".mw-parser-output > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > a:nth-child(1)").text
-    # except:
-    #     ability_one = ""
-    #     ability_two = ""
-    #     ability_three = ""
-    # if ability_two == "Cacophony":
-    #     ability_two = ""
-    # elif ability_three == "Cacophony":
-    #     ability_three = ""
-    # try:
-    #     hidden_abil = driver.find_element_by_css_selector(".mw-parser-output > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(4) > a:nth-child(1)").text
-    # except:
-    #     hidden_abil = ""
-    # if hidden_abil == "Cacophony":
-    #     hidden_abil = ""
-    # ability_list = [ability_one, ability_two, ability_three, hidden_abil + "<>Hidden"]
-    # for i in ability_list:
-    #     if i == "":
-    #         ability_list.remove("")
-    # thingToReturn.append(ability_list)
-    # breakpoint()
     return thingToReturn
 
 def valid_pokemon(pokemon_name):
