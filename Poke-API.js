@@ -3,9 +3,10 @@ const { json } = require("body-parser");
 var express = require("express");
 var app = express();
 
+// This import is for reading and converting json into an object with properties
 let json_read = require('/Users/a/hello/My-API/Pokemon-To-JSON/json.json');
-console.log(json_read["Audino"], ' This is the JSON');
 
+// This is for IO so I can read the json file scraped
 let inputOutput = require('fs')
 
 // runs express server by running 'node app.js' on terminal
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to the Pokemon API. Hopefully, you can get some information about certain Pokemon from here");
 })
 
+// Get Request to get information about a specific Pokemon
 app.get("/:pokemon", (req, res) => {
     if (json_read[req.params.pokemon] === null) {
         res.send("Wut");
@@ -25,6 +27,8 @@ app.get("/:pokemon", (req, res) => {
     res.send(json_read[req.params.pokemon]);
 })
 
+// This is Posting Pokemon with the type of Pokemon and it's type. If the python script is modified to scrape more data,
+// this Post request can be changed.
 app.post("/:pokemon/:variation/:type", (req, res) => {
     json_read[req.params.pokemon] = [req.params.variation, req.params.type];
     res.send("This Pokemon and it's information has been added");
@@ -33,6 +37,7 @@ app.post("/:pokemon/:variation/:type", (req, res) => {
     })
 })
 
+// This request is for deleting a specific Pokemon.
 app.delete("/:pokemon", (req, res) => {
     if (json_read[req.params.pokemon] === null) {
         return res.status(404).send("The Pokemon entered doesn't exist");
