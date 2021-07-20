@@ -3,7 +3,7 @@
 Run `extractor.py` to update the json file.
 **Note: It can take quite a long time for all the information to be extracted. Also, the json file will need to be updated everytime extra information about Pokemon is scrapped**
 
-After downloading the files, type in `node PokeAPI.js` in the command line to start the server.
+After downloading the files, type in `node Poke-API.js` in the command line to start the server.
 
 ### GET Requests
 
