@@ -44,7 +44,7 @@ app.post("/:pokemon/:variation/:type", (req, res) => {
 
 // This request is for deleting a specific Pokemon.
 app.delete("/:pokemon", (req, res) => {
-    if (json_read[req.params.pokemon] === null) {
+    if (json_read[req.params.pokemon] == null) {
         return res.status(404).send("The Pokemon entered doesn't exist");
     }
     let pokemonName = req.params.pokemon;
