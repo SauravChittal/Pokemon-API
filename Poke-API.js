@@ -1,17 +1,22 @@
 // Creating a web server in express
-const { json } = require("body-parser");
-var express = require("express");
+const { json } = require('body-parser');
+var express = require('express');
 var app = express();
+
+var cors = require('cors');
+
+app.use(cors());
 
 // This import is for reading and converting json into an object with properties
 let json_read = require('/Users/a/hello/My-API/Pokemon-To-JSON/json.json');
 
 // This is for IO so I can read the json file scraped
-let inputOutput = require('fs')
+let inputOutput = require('fs');
+const { METHODS } = require("http");
 
 // runs express server by running 'node app.js' on terminal
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+app.listen(2999, () => {
+    console.log("Server running on http://localhost:2999");
 });
 
 app.get("/", (req, res) => {
@@ -20,11 +25,11 @@ app.get("/", (req, res) => {
 
 // Get Request to get information about a specific Pokemon
 app.get("/:pokemon", (req, res) => {
-    if (json_read[req.params.pokemon] === null) {
-        res.send("Wut");
-        return res.status(404).send("This is not a Pokemon");
+    if (json_read[req.params.pokemon] == null) {
+        res.status(404).send("This is not a Pokemon");
+    } else {
+        res.send(json_read[req.params.pokemon]);
     }
-    res.send(json_read[req.params.pokemon]);
 })
 
 // This is Posting Pokemon with the type of Pokemon and it's type. If the python script is modified to scrape more data,
